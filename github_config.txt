@@ -1,0 +1,7 @@
+git@github.com:xhh6019/xhh6019.github.io.git
+
+eval $(ssh-agent -s)
+ssh-add /c/Users/xiehuihuang/.ssh/id_rsa_github
+
+
+https://blog.csdn.net/birdben/article/details/51811568

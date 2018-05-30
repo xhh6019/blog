@@ -8,6 +8,9 @@ import time
 from ImageProcess import Graphics
 import os.path
 
+import shutil
+import exifread
+
 # 定义压缩比，数值越大，压缩越小
 SIZE_normal = 1.0
 SIZE_small = 1.5
@@ -69,11 +72,14 @@ def compress(choose, des_dir, src_dir, file_list):
         # size_of_file = os.path.getsize(infile)
         w, h = img.size
         img.thumbnail((int(w/scale), int(h/scale)))
-        img.save(des_dir + infile)
+        captureTime = getOriginalDate(src_dir + infile);
+
+        outfilename = des_dir + captureTime + "_" + file_basename(infile) + file_extension(infile);
+        img.save(outfilename)
 def compress_photo():
     '''调用压缩图片的函数
     '''
-    src_dir, des_dir = "photos/", "min_photos/"
+    src_dir, des_dir = "photos_src/", "photos/"
     
     if directory_exists(src_dir):
         if not directory_exists(src_dir):
@@ -86,10 +92,16 @@ def compress_photo():
         file_list_des = list_img_file(des_dir)
         # print file_list
     '''如果已经压缩了，就不再压缩'''
-    for i in range(len(file_list_des)):
-        if file_list_des[i] in file_list_src:
-            file_list_src.remove(file_list_des[i])
-    compress('4', des_dir, src_dir, file_list_src)
+    # for i in range(len(file_list_des)):
+    #     if file_list_des[i] in file_list_src:
+    #         file_list_src.remove(file_list_des[i])
+
+    # if (sys.argv[0] > 0):
+    #     compress(sys.argv[0], des_dir, src_dir, file_list_src)
+    # else :
+    compress("4", des_dir, src_dir, file_list_src)
+
+
 
 def file_extension(path):
   return os.path.splitext(path)[1]
@@ -139,14 +151,29 @@ def handle_photo():
     with open("source/photos/data.json","w") as fp:
         json.dump(final_dict, fp)
 
+def getOriginalDate(filename):
+    try:
+        fd = open(filename, 'rb')
+    except:
+        raise ReadFailException("unopen file[%s]\n" % filename)
+    data = exifread.process_file( fd )
+    if data:
+        try:
+            t = data['EXIF DateTimeOriginal']
+            return str(t).replace(":","-")[:10]
+        except:
+            pass
+    state = os.stat(filename)
+    return time.strftime("%Y-%m-%d", time.localtime(state))
+
 def cut_photo():
     """裁剪算法
     
     ----------
     调用Graphics类中的裁剪算法，将src_dir目录下的文件进行裁剪（裁剪成正方形）
     """
-    src_dir = "photos_src/"
-    des_dir = "photos/"
+    src_dir = "photos/"
+    des_dir = "min_photos/"
     if directory_exists(src_dir):
         if not directory_exists(src_dir):
             make_directory(src_dir)
@@ -158,9 +185,11 @@ def cut_photo():
             for infile in file_list:
                 img = Image.open(src_dir+infile)
 
-                now = time.strftime("%Y-%m-%d")
-                outfilename = des_dir + now+"_"+file_basename(infile)+file_extension(infile);
-                Graphics(infile=src_dir+infile, outfile=outfilename).cut_by_ratio()
+                # now = time.strftime("%Y-%m-%d")
+                # captureTime = getOriginalDate(src_dir+infile);
+                #
+                # outfilename = des_dir + captureTime+"_"+file_basename(infile)+file_extension(infile);
+                Graphics(infile=src_dir+infile, outfile=des_dir+infile).cut_by_ratio()
         else:
             pass
     else:
@@ -180,8 +209,8 @@ def git_operation():
     os.system('git push origin master')
 
 if __name__ == "__main__":
-    cut_photo()        # 裁剪图片，裁剪成正方形，去中间部分
     compress_photo()   # 压缩图片，并保存到mini_photos文件夹下
+    cut_photo()        # 裁剪图片，裁剪成正方形，去中间部分
 #    git_operation()    # 提交到github仓库
     handle_photo()     # 将文件处理成json格式，存到博客仓库中
 

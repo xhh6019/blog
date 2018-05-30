@@ -1,14 +1,1 @@
-[
-	"DSC00927.jpg",
-	"DSC01158.jpg",
-	"DSC01221.jpg",
-	"DSC01267.jpg",
-	"DSC01303.jpg",
-	"DSC01341.jpg",
-	"DSC01346.jpg",
-	"DSC01413.jpg",
-	"DSC01537.jpg",
-	"DSC01631.jpg",
-	"DSC01709.jpg",
-	"DSC01824.jpg"
-]
+{"list": [{"date": "2018-05", "arr": {"year": 2018, "month": 5, "link": ["2018-05-30_DSC00927.jpg", "2018-05-30_DSC01158.jpg", "2018-05-30_DSC01221.jpg", "2018-05-30_DSC01267.jpg", "2018-05-30_DSC01303.jpg", "2018-05-30_DSC01341.jpg", "2018-05-30_DSC01346.jpg", "2018-05-30_DSC01413.jpg", "2018-05-30_DSC01537.jpg", "2018-05-30_DSC01631.jpg", "2018-05-30_DSC01709.jpg", "2018-05-30_DSC01824.jpg"], "text": ["DSC00927", "DSC01158", "DSC01221", "DSC01267", "DSC01303", "DSC01341", "DSC01346", "DSC01413", "DSC01537", "DSC01631", "DSC01709", "DSC01824"], "type": ["image", "image", "image", "image", "image", "image", "image", "image", "image", "image", "image", "image"]}}]}

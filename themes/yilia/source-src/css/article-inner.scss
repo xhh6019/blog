@@ -71,7 +71,6 @@
 
 .article-inner h1:first-child{
   margin-bottom: 10px;
-  display: inline;
 }
 .article-entry{
   line-height: 1.8em;
@@ -104,7 +103,7 @@
   em {
     font-style: italic;
   }
-  ul {
+  ul, ol{
     li:before{
       content: "";
       width: 6px;
@@ -115,15 +114,7 @@
       display: inline-block;
       margin-right: 10px;
       float: left;
-      margin-top: 10px;
-    }
-  }
-  ol {
-    counter-reset: item;
-    li:before{
-      counter-increment: item;
-	    content: counter(item)".";
-      margin-right: 10px;
+      margin-top: 12px;
     }
   }
   ul,ol{

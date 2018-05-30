@@ -79,6 +79,6 @@ theme: yilia
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
     type: git
-    repo: git@gitee.com:xhh6019/weiba.git
+    repo: git@github.com:xhh6019/xhh6019.github.io.git
     branch: master
 

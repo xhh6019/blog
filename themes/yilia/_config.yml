@@ -6,18 +6,18 @@ menu:
 
 # SubNav
 subnav:
-  github: "#"
-  weibo: "#"
-  rss: "#"
-  zhihu: "#"
-  #qq: "#"
+  github: "https://github.com/xhh6019"
+  #weibo: "#"
+  #rss: "#"
+  #zhihu: "#"
+  qq: "#75966491"
   #weixin: "#"
   #jianshu: "#"
   #douban: "#"
   #segmentfault: "#"
   #bilibili: "#"
   #acfun: "#"
-  #mail: "mailto:litten225@qq.com"
+  mail: "mailto:75966491@qq.com"
   #facebook: "#"
   #google: "#"
   #twitter: "#"
@@ -43,13 +43,13 @@ open_in_new: false
 
 # 打赏
 # 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
-reward_type: 0
+reward_type: 1
 # 打赏wording
-reward_wording: '谢谢你请我吃糖果'
+reward_wording: '谢谢老板'
 # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
-alipay: 
+alipay: /assets/alipay.JPG
 # 微信二维码图片地址
-weixin: 
+weixin: /assets/wechat.JPG
 
 # 目录
 # 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录
@@ -120,6 +120,6 @@ smart_menu:
   aboutme: '关于我'
 
 friends:
-  友情链接1: http://localhost:4000/
+  博客主页: http://weibaxie.top/
 
-aboutme: 很惭愧<br><br>只做了一点微小的工作<br>谢谢大家
+aboutme: 域名购买请emai到 75966491@qq.com<br>Domain purchases please emai to 75966491@qq.com

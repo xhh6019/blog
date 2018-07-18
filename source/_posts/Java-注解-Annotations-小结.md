@@ -133,7 +133,7 @@ Java1.5引入了注解，当前许多java框架中大量使用注解，如Hibern
     Annotation=@com.xhh.client.MethodInfo(value=oldMethod, revision=1, comments=)
     args: revision=1 comments= value=oldMethod
 
-[demo 例子的源码](/assets/blogImg/annotations/AnnotationsMain.java)
+[右键另存demo例子的源码](/assets/blogImg/annotations/AnnotationsMain.java)
 
 #### 简单分析Retrofit中的注释解析过程
 
